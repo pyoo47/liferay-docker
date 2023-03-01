@@ -154,6 +154,11 @@ function get_tomcat_version {
 }
 
 function log_in_to_docker_hub {
+	echo PDY
+	echo LIFERAY_DOCKER_HUB_LOGGED_IN=${LIFERAY_DOCKER_HUB_LOGGED_IN}
+	echo LIFERAY_DOCKER_HUB_TOKEN=${LIFERAY_DOCKER_HUB_TOKEN}
+	echo LIFERAY_DOCKER_HUB_USERNAME=${LIFERAY_DOCKER_HUB_USERNAME}
+
 	if [ ! -n "${LIFERAY_DOCKER_HUB_LOGGED_IN}" ] && [ -n "${LIFERAY_DOCKER_HUB_TOKEN}" ] && [ -n "${LIFERAY_DOCKER_HUB_USERNAME}" ]
 	then
 		echo ""
