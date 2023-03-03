@@ -103,6 +103,8 @@ function build_docker_image {
 
 	remove_temp_dockerfile_target_platform
 
+	echo "PDY: TAGS: $(get_docker_image_tags_args "${DOCKER_IMAGE_TAGS[@]}")"
+
 	docker build \
 		--build-arg LABEL_BUILD_DATE=$(date "${CURRENT_DATE}" "+%Y-%m-%dT%H:%M:%SZ") \
 		--build-arg LABEL_LIFERAY_PATCHING_TOOL_VERSION="${LIFERAY_DOCKER_TEST_PATCHING_TOOL_VERSION}" \
