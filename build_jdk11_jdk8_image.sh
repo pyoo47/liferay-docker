@@ -13,6 +13,8 @@ function build_docker_image {
 	then
 		check_docker_buildx
 
+		set -x
+
 		docker buildx build \
 			--build-arg LABEL_BUILD_DATE=$(date "${CURRENT_DATE}" "+%Y-%m-%dT%H:%M:%SZ") \
 			--build-arg LABEL_NAME="Liferay JDK11 JDK8" \
@@ -26,6 +28,8 @@ function build_docker_image {
 			--push \
 			$(get_docker_image_tags_args "${DOCKER_IMAGE_TAGS[@]}") \
 			"${TEMP_DIR}" || exit 1
+
+		set +x
 	else
 		remove_temp_dockerfile_target_platform
 
